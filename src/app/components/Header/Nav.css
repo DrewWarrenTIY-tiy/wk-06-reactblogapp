@@ -1,0 +1,18 @@
+.navBar {
+  list-style-type: square;
+  margin-right: .5em;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  margin: .2em;
+  padding: 8px;
+  background-color: lightslategrey;
+  color: #ffbf25;
+}
+
+a {
+  text-decoration: none;
+  color: #ffbf25;
+}
