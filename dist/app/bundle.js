@@ -21968,11 +21968,11 @@
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _Body = __webpack_require__(/*! ./Body */ 179);
+	var _Body = __webpack_require__(/*! ./Body */ 181);
 	
 	var _Body2 = _interopRequireDefault(_Body);
 	
-	var _Footer = __webpack_require__(/*! ./Footer */ 182);
+	var _Footer = __webpack_require__(/*! ./Footer */ 184);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
@@ -22034,7 +22034,7 @@
 	
 	var _Nav2 = _interopRequireDefault(_Nav);
 	
-	var _Header = __webpack_require__(/*! ./Header.css */ 175);
+	var _Header = __webpack_require__(/*! ./Header.css */ 179);
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
@@ -22061,11 +22061,6 @@
 	      return _react2.default.createElement(
 	        'header',
 	        null,
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Header'
-	        ),
 	        _react2.default.createElement(_Nav2.default, null)
 	      );
 	    }
@@ -22095,7 +22090,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Nav = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./Header/Nav.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _Nav = __webpack_require__(/*! ./Nav.css */ 175);
 	
 	var _Nav2 = _interopRequireDefault(_Nav);
 	
@@ -22125,17 +22120,29 @@
 	        _react2.default.createElement(
 	          'li',
 	          null,
-	          'liOne'
+	          _react2.default.createElement(
+	            'a',
+	            { href: '#' },
+	            'Home'
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'li',
 	          null,
-	          'liTwo'
+	          _react2.default.createElement(
+	            'a',
+	            { href: '#' },
+	            'About'
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'li',
 	          null,
-	          'liThree'
+	          _react2.default.createElement(
+	            'a',
+	            { href: '#' },
+	            'Contact'
+	          )
 	        )
 	      );
 	    }
@@ -22148,25 +22155,25 @@
 
 /***/ },
 /* 175 */
-/*!***************************************!*\
-  !*** ./src/app/components/Header.css ***!
-  \***************************************/
+/*!*******************************************!*\
+  !*** ./src/app/components/Header/Nav.css ***!
+  \*******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./Header.css */ 176);
+	var content = __webpack_require__(/*! !./../../../../~/css-loader!./Nav.css */ 176);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
+	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 178)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./Header.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./Header.css");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./Nav.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./Nav.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -22177,17 +22184,17 @@
 
 /***/ },
 /* 176 */
-/*!******************************************************!*\
-  !*** ./~/css-loader!./src/app/components/Header.css ***!
-  \******************************************************/
+/*!**********************************************************!*\
+  !*** ./~/css-loader!./src/app/components/Header/Nav.css ***!
+  \**********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 177)();
+	exports = module.exports = __webpack_require__(/*! ./../../../../~/css-loader/lib/css-base.js */ 177)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "header {\n  background-color: lightgreen;\n}\n", ""]);
+	exports.push([module.id, ".navBar {\n  list-style-type: square;\n  margin-right: .5em;\n}\n\nli {\n  list-style: none;\n  display: inline-block;\n  margin: .2em;\n  padding: 8px;\n  background-color: lightslategrey;\n  color: #ffbf25;\n}\n\na {\n  text-decoration: none;\n  color: #ffbf25;\n}\n", ""]);
 	
 	// exports
 
@@ -22508,6 +22515,52 @@
 
 /***/ },
 /* 179 */
+/*!***************************************!*\
+  !*** ./src/app/components/Header.css ***!
+  \***************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./Header.css */ 180);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./Header.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./Header.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 180 */
+/*!******************************************************!*\
+  !*** ./~/css-loader!./src/app/components/Header.css ***!
+  \******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 177)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "header {\n  display: flex;\n  justify-content: flex-end;\n  background-color: darkred;\n}\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 181 */
 /*!************************************!*\
   !*** ./src/app/components/Body.js ***!
   \************************************/
@@ -22525,11 +22578,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Main = __webpack_require__(/*! ./Body/Main */ 180);
+	var _Main = __webpack_require__(/*! ./Body/Main */ 182);
 	
 	var _Main2 = _interopRequireDefault(_Main);
 	
-	var _Sidebar = __webpack_require__(/*! ./Body/Sidebar */ 181);
+	var _Sidebar = __webpack_require__(/*! ./Body/Sidebar */ 183);
 	
 	var _Sidebar2 = _interopRequireDefault(_Sidebar);
 	
@@ -22573,7 +22626,7 @@
 	exports.default = Body;
 
 /***/ },
-/* 180 */
+/* 182 */
 /*!*****************************************!*\
   !*** ./src/app/components/Body/Main.js ***!
   \*****************************************/
@@ -22639,7 +22692,7 @@
 	exports.default = Main;
 
 /***/ },
-/* 181 */
+/* 183 */
 /*!********************************************!*\
   !*** ./src/app/components/Body/Sidebar.js ***!
   \********************************************/
@@ -22691,7 +22744,7 @@
 	exports.default = Sidebar;
 
 /***/ },
-/* 182 */
+/* 184 */
 /*!**************************************!*\
   !*** ./src/app/components/Footer.js ***!
   \**************************************/
