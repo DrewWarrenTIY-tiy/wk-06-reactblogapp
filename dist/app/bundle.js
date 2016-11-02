@@ -21972,11 +21972,11 @@
 	
 	var _Body2 = _interopRequireDefault(_Body);
 	
-	var _Footer = __webpack_require__(/*! ./Footer */ 188);
+	var _Footer = __webpack_require__(/*! ./Footer */ 191);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
-	var _App = __webpack_require__(/*! ./App.css */ 191);
+	var _App = __webpack_require__(/*! ./App.css */ 194);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
@@ -22567,7 +22567,7 @@
 	
 	
 	// module
-	exports.push([module.id, "header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: darkred;\n}\n\nheader img {\n  height: 80px;\n  margin: 5px;\n}\n", ""]);
+	exports.push([module.id, "header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: darkred;\n}\n\nheader img {\n  border-radius: 50%;\n  height: 80px;\n  margin: 5px;\n}\n", ""]);
 	
 	// exports
 
@@ -22595,11 +22595,11 @@
 	
 	var _Main2 = _interopRequireDefault(_Main);
 	
-	var _Sidebar = __webpack_require__(/*! ./Body/Sidebar */ 183);
+	var _Sidebar = __webpack_require__(/*! ./Body/Sidebar */ 186);
 	
 	var _Sidebar2 = _interopRequireDefault(_Sidebar);
 	
-	var _Body = __webpack_require__(/*! ./Body.css */ 186);
+	var _Body = __webpack_require__(/*! ./Body.css */ 189);
 	
 	var _Body2 = _interopRequireDefault(_Body);
 	
@@ -22656,6 +22656,14 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _Main = __webpack_require__(/*! ./Main.css */ 183);
+	
+	var _Main2 = _interopRequireDefault(_Main);
+	
+	var _blogposts = __webpack_require__(/*! ../blogposts.json */ 185);
+	
+	var _blogposts2 = _interopRequireDefault(_blogposts);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22686,18 +22694,22 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'blogPost blogPostOne' },
-	          'Blog Post One'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'blogPost blogPostTwo' },
-	          'Blog Post Two'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'blogPost blogPostThree' },
-	          'Blog Post Three'
+	          { className: 'postHolder' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'blogPost blogPostOne' },
+	            _blogposts2.default[0].title
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'blogPost blogPostTwo' },
+	            'Blog Post Two'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'blogPost blogPostThree' },
+	            'Blog Post Three'
+	          )
 	        )
 	      );
 	    }
@@ -22710,6 +22722,81 @@
 
 /***/ },
 /* 183 */
+/*!******************************************!*\
+  !*** ./src/app/components/Body/Main.css ***!
+  \******************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../../~/css-loader!./Main.css */ 184);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 178)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./Main.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./Main.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 184 */
+/*!*********************************************************!*\
+  !*** ./~/css-loader!./src/app/components/Body/Main.css ***!
+  \*********************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../../~/css-loader/lib/css-base.js */ 177)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".postHolder {\n  display: flex;\n  flex-direction: row;\n}\n\nh1 {\n  text-align: center;\n}\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 185 */
+/*!*******************************************!*\
+  !*** ./src/app/components/blogposts.json ***!
+  \*******************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	module.exports = [{
+		"id": "1",
+		"title": "Title One",
+		"date": "May 20, 2016 10:00",
+		"article": "Blog Post One",
+		"tags": ["tagOne", "tagTwo", "tagThree"]
+	}, {
+		"id": "2",
+		"title": "Title Two",
+		"date": "June 20, 2016 12:00",
+		"article": "Blog Post Two",
+		"tags": ["tagOne", "tagTwo", "tagFour"]
+	}, {
+		"id": "3",
+		"title": "Title Three",
+		"date": "July 20, 2016 14:00",
+		"article": "Blog Post Three",
+		"tags": ["tagOne", "tagFour", "tagFive"]
+	}];
+
+/***/ },
+/* 186 */
 /*!********************************************!*\
   !*** ./src/app/components/Body/Sidebar.js ***!
   \********************************************/
@@ -22727,7 +22814,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Sidebar = __webpack_require__(/*! ./Sidebar.css */ 184);
+	var _Sidebar = __webpack_require__(/*! ./Sidebar.css */ 187);
 	
 	var _Sidebar2 = _interopRequireDefault(_Sidebar);
 	
@@ -22777,7 +22864,7 @@
 	exports.default = Sidebar;
 
 /***/ },
-/* 184 */
+/* 187 */
 /*!*********************************************!*\
   !*** ./src/app/components/Body/Sidebar.css ***!
   \*********************************************/
@@ -22786,7 +22873,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../../~/css-loader!./Sidebar.css */ 185);
+	var content = __webpack_require__(/*! !./../../../../~/css-loader!./Sidebar.css */ 188);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -22806,7 +22893,7 @@
 	}
 
 /***/ },
-/* 185 */
+/* 188 */
 /*!************************************************************!*\
   !*** ./~/css-loader!./src/app/components/Body/Sidebar.css ***!
   \************************************************************/
@@ -22823,7 +22910,7 @@
 
 
 /***/ },
-/* 186 */
+/* 189 */
 /*!*************************************!*\
   !*** ./src/app/components/Body.css ***!
   \*************************************/
@@ -22832,7 +22919,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./Body.css */ 187);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./Body.css */ 190);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -22852,7 +22939,7 @@
 	}
 
 /***/ },
-/* 187 */
+/* 190 */
 /*!****************************************************!*\
   !*** ./~/css-loader!./src/app/components/Body.css ***!
   \****************************************************/
@@ -22863,13 +22950,13 @@
 	
 	
 	// module
-	exports.push([module.id, ".body {\n  display: flex;\n  justify-content: space-around;\n  background-color: lightgrey;\n}\n\nbody h1 {\n  margin:0;\n  padding:0;\n}\n", ""]);
+	exports.push([module.id, ".body {\n  display: flex;\n  justify-content: space-around;\n  background-color: lightgrey;\n  height: 300px;\n}\n\nbody h1 {\n  margin:0;\n  padding:0;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 188 */
+/* 191 */
 /*!**************************************!*\
   !*** ./src/app/components/Footer.js ***!
   \**************************************/
@@ -22887,7 +22974,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Footer = __webpack_require__(/*! ./Footer.css */ 189);
+	var _Footer = __webpack_require__(/*! ./Footer.css */ 192);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
@@ -22915,9 +23002,9 @@
 	        'footer',
 	        null,
 	        _react2.default.createElement(
-	          'h6',
+	          'p',
 	          null,
-	          'Footer'
+	          'Copyright 2016. Drew Warren'
 	        )
 	      );
 	    }
@@ -22929,7 +23016,7 @@
 	exports.default = Footer;
 
 /***/ },
-/* 189 */
+/* 192 */
 /*!***************************************!*\
   !*** ./src/app/components/Footer.css ***!
   \***************************************/
@@ -22938,7 +23025,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./Footer.css */ 190);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./Footer.css */ 193);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -22958,7 +23045,7 @@
 	}
 
 /***/ },
-/* 190 */
+/* 193 */
 /*!******************************************************!*\
   !*** ./~/css-loader!./src/app/components/Footer.css ***!
   \******************************************************/
@@ -22969,13 +23056,13 @@
 	
 	
 	// module
-	exports.push([module.id, "footer {\n  margin:0;\n  padding:0;\n  background-color: lightgrey;\n}\n\nfooter h6 {\n  margin: 0;\n  padding: 0;\n}\n", ""]);
+	exports.push([module.id, "footer {\n  margin:0;\n  padding:0;\n  background-color: lightgrey;\n}\n\nfooter p {\n  text-align: center;\n  margin: 0;\n  padding: 0;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 191 */
+/* 194 */
 /*!************************************!*\
   !*** ./src/app/components/App.css ***!
   \************************************/
@@ -22984,7 +23071,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./App.css */ 192);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./App.css */ 195);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -23004,7 +23091,7 @@
 	}
 
 /***/ },
-/* 192 */
+/* 195 */
 /*!***************************************************!*\
   !*** ./~/css-loader!./src/app/components/App.css ***!
   \***************************************************/

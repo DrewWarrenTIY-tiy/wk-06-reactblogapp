@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "title": "Title One",
+    "date": "May 20, 2016 10:00",
+    "article": "Blog Post One",
+    "tags": ["tagOne", "tagTwo", "tagThree"]
+  },
+  {
+    "id": "2",
+    "title": "Title Two",
+    "date": "June 20, 2016 12:00",
+    "article": "Blog Post Two",
+    "tags": ["tagOne", "tagTwo", "tagFour"]
+  },
+  {
+    "id": "3",
+    "title": "Title Three",
+    "date": "July 20, 2016 14:00",
+    "article": "Blog Post Three",
+    "tags": ["tagOne", "tagFour", "tagFive"]
+  }
+]
