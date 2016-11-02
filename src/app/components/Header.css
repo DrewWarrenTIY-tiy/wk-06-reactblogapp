@@ -6,6 +6,7 @@ header {
 }
 
 header img {
+  border-radius: 50%;
   height: 80px;
   margin: 5px;
 }

@@ -21972,11 +21972,11 @@
 	
 	var _Body2 = _interopRequireDefault(_Body);
 	
-	var _Footer = __webpack_require__(/*! ./Footer */ 186);
+	var _Footer = __webpack_require__(/*! ./Footer */ 188);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
-	var _App = __webpack_require__(/*! ./App.css */ 187);
+	var _App = __webpack_require__(/*! ./App.css */ 191);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
@@ -22004,7 +22004,11 @@
 	        'div',
 	        { className: 'container' },
 	        _react2.default.createElement(_Header2.default, null),
-	        _react2.default.createElement(_Body2.default, null),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'content' },
+	          _react2.default.createElement(_Body2.default, null)
+	        ),
 	        _react2.default.createElement(_Footer2.default, null)
 	      );
 	    }
@@ -22203,7 +22207,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".navBar {\n  list-style-type: square;\n  margin-right: .5em;\n}\n\nli {\n  list-style: none;\n  display: inline-block;\n  margin: .2em;\n  padding: 8px;\n  background-color: lightslategrey;\n  color: white;\n}\n\na {\n  text-decoration: none;\n  color: white;\n}\n", ""]);
+	exports.push([module.id, ".navBar {\n  list-style-type: square;\n  margin-right: .5em;\n}\n\nli {\n  list-style: none;\n  display: inline-block;\n  margin: .2em;\n  padding: 8px;\n  background-color: lightslategrey;\n  color: lightgrey;\n}\n\na {\n  text-decoration: none;\n  color: lightgrey;\n}\n", ""]);
 	
 	// exports
 
@@ -22595,6 +22599,10 @@
 	
 	var _Sidebar2 = _interopRequireDefault(_Sidebar);
 	
+	var _Body = __webpack_require__(/*! ./Body.css */ 186);
+	
+	var _Body2 = _interopRequireDefault(_Body);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22618,11 +22626,6 @@
 	      return _react2.default.createElement(
 	        'main',
 	        { className: 'body' },
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Body'
-	        ),
 	        _react2.default.createElement(_Main2.default, null),
 	        _react2.default.createElement(_Sidebar2.default, null)
 	      );
@@ -22676,6 +22679,11 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'blogMain' },
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Body'
+	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'blogPost blogPostOne' },
@@ -22816,6 +22824,52 @@
 
 /***/ },
 /* 186 */
+/*!*************************************!*\
+  !*** ./src/app/components/Body.css ***!
+  \*************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./Body.css */ 187);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./Body.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./Body.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 187 */
+/*!****************************************************!*\
+  !*** ./~/css-loader!./src/app/components/Body.css ***!
+  \****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 177)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".body {\n  display: flex;\n  justify-content: space-around;\n  background-color: lightgrey;\n}\n\nbody h1 {\n  margin:0;\n  padding:0;\n}\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 188 */
 /*!**************************************!*\
   !*** ./src/app/components/Footer.js ***!
   \**************************************/
@@ -22832,6 +22886,10 @@
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _Footer = __webpack_require__(/*! ./Footer.css */ 189);
+	
+	var _Footer2 = _interopRequireDefault(_Footer);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22871,7 +22929,53 @@
 	exports.default = Footer;
 
 /***/ },
-/* 187 */
+/* 189 */
+/*!***************************************!*\
+  !*** ./src/app/components/Footer.css ***!
+  \***************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./Footer.css */ 190);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./Footer.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./Footer.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 190 */
+/*!******************************************************!*\
+  !*** ./~/css-loader!./src/app/components/Footer.css ***!
+  \******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 177)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "footer {\n  margin:0;\n  padding:0;\n  background-color: lightgrey;\n}\n\nfooter h6 {\n  margin: 0;\n  padding: 0;\n}\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 191 */
 /*!************************************!*\
   !*** ./src/app/components/App.css ***!
   \************************************/
@@ -22880,7 +22984,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./App.css */ 188);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./App.css */ 192);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -22900,7 +23004,7 @@
 	}
 
 /***/ },
-/* 188 */
+/* 192 */
 /*!***************************************************!*\
   !*** ./~/css-loader!./src/app/components/App.css ***!
   \***************************************************/
