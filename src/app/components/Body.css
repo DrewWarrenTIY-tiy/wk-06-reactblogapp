@@ -1,0 +1,10 @@
+.body {
+  display: flex;
+  justify-content: space-around;
+  background-color: lightgrey;
+}
+
+body h1 {
+  margin:0;
+  padding:0;
+}

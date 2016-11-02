@@ -1,5 +1,11 @@
 header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   background-color: darkred;
+}
+
+header img {
+  height: 80px;
+  margin: 5px;
 }

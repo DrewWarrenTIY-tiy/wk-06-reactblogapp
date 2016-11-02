@@ -21972,9 +21972,13 @@
 	
 	var _Body2 = _interopRequireDefault(_Body);
 	
-	var _Footer = __webpack_require__(/*! ./Footer */ 184);
+	var _Footer = __webpack_require__(/*! ./Footer */ 186);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
+	
+	var _App = __webpack_require__(/*! ./App.css */ 187);
+	
+	var _App2 = _interopRequireDefault(_App);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22061,6 +22065,7 @@
 	      return _react2.default.createElement(
 	        'header',
 	        null,
+	        _react2.default.createElement('img', { className: 'logo', src: './app/img/unicorn-icon.jpg', alt: 'logo' }),
 	        _react2.default.createElement(_Nav2.default, null)
 	      );
 	    }
@@ -22115,33 +22120,37 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'ul',
-	        { className: 'navBar' },
+	        'nav',
+	        null,
 	        _react2.default.createElement(
-	          'li',
-	          null,
+	          'ul',
+	          { className: 'navBar' },
 	          _react2.default.createElement(
-	            'a',
-	            { href: '#' },
-	            'Home'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
+	            'li',
+	            null,
+	            _react2.default.createElement(
+	              'a',
+	              { href: '#' },
+	              'Home'
+	            )
+	          ),
 	          _react2.default.createElement(
-	            'a',
-	            { href: '#' },
-	            'About'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
+	            'li',
+	            null,
+	            _react2.default.createElement(
+	              'a',
+	              { href: '#' },
+	              'About'
+	            )
+	          ),
 	          _react2.default.createElement(
-	            'a',
-	            { href: '#' },
-	            'Contact'
+	            'li',
+	            null,
+	            _react2.default.createElement(
+	              'a',
+	              { href: '#' },
+	              'Contact'
+	            )
 	          )
 	        )
 	      );
@@ -22194,7 +22203,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".navBar {\n  list-style-type: square;\n  margin-right: .5em;\n}\n\nli {\n  list-style: none;\n  display: inline-block;\n  margin: .2em;\n  padding: 8px;\n  background-color: lightslategrey;\n  color: #ffbf25;\n}\n\na {\n  text-decoration: none;\n  color: #ffbf25;\n}\n", ""]);
+	exports.push([module.id, ".navBar {\n  list-style-type: square;\n  margin-right: .5em;\n}\n\nli {\n  list-style: none;\n  display: inline-block;\n  margin: .2em;\n  padding: 8px;\n  background-color: lightslategrey;\n  color: white;\n}\n\na {\n  text-decoration: none;\n  color: white;\n}\n", ""]);
 	
 	// exports
 
@@ -22554,7 +22563,7 @@
 	
 	
 	// module
-	exports.push([module.id, "header {\n  display: flex;\n  justify-content: flex-end;\n  background-color: darkred;\n}\n", ""]);
+	exports.push([module.id, "header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: darkred;\n}\n\nheader img {\n  height: 80px;\n  margin: 5px;\n}\n", ""]);
 	
 	// exports
 
@@ -22710,6 +22719,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _Sidebar = __webpack_require__(/*! ./Sidebar.css */ 184);
+	
+	var _Sidebar2 = _interopRequireDefault(_Sidebar);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22733,7 +22746,19 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'sidebar' },
-	        'Sidebar'
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Sidebar'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'months' },
+	          'Months with a Post:',
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null)
+	        )
 	      );
 	    }
 	  }]);
@@ -22745,6 +22770,52 @@
 
 /***/ },
 /* 184 */
+/*!*********************************************!*\
+  !*** ./src/app/components/Body/Sidebar.css ***!
+  \*********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../../~/css-loader!./Sidebar.css */ 185);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 178)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./Sidebar.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./Sidebar.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 185 */
+/*!************************************************************!*\
+  !*** ./~/css-loader!./src/app/components/Body/Sidebar.css ***!
+  \************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../../~/css-loader/lib/css-base.js */ 177)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".sidebar {\n  background-color: darkgrey;\n}\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 186 */
 /*!**************************************!*\
   !*** ./src/app/components/Footer.js ***!
   \**************************************/
@@ -22798,6 +22869,52 @@
 	}(_react2.default.Component);
 	
 	exports.default = Footer;
+
+/***/ },
+/* 187 */
+/*!************************************!*\
+  !*** ./src/app/components/App.css ***!
+  \************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./App.css */ 188);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./App.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./App.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 188 */
+/*!***************************************************!*\
+  !*** ./~/css-loader!./src/app/components/App.css ***!
+  \***************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 177)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "body {\n  background-color: black;\n}\n", ""]);
+	
+	// exports
+
 
 /***/ }
 /******/ ]);

@@ -9,10 +9,10 @@ li {
   margin: .2em;
   padding: 8px;
   background-color: lightslategrey;
-  color: #ffbf25;
+  color: lightgrey;
 }
 
 a {
   text-decoration: none;
-  color: #ffbf25;
+  color: lightgrey;
 }

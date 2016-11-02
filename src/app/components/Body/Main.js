@@ -6,6 +6,7 @@ export default class Main extends React.Component {
   render () {
     return(
       <div className="blogMain">
+        <h1>Body</h1>
         <div className="blogPost blogPostOne">
           Blog Post One
         </div>
