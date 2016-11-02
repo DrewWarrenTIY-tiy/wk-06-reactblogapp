@@ -22698,17 +22698,44 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'blogPost blogPostOne' },
-	            _blogposts2.default[0].title
+	            _react2.default.createElement(
+	              'h4',
+	              null,
+	              _blogposts2.default[0].title
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              _blogposts2.default[0].article
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'blogPost blogPostTwo' },
-	            'Blog Post Two'
+	            _react2.default.createElement(
+	              'h4',
+	              null,
+	              _blogposts2.default[1].title
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              _blogposts2.default[1].article
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'blogPost blogPostThree' },
-	            'Blog Post Three'
+	            _react2.default.createElement(
+	              'h4',
+	              null,
+	              _blogposts2.default[2].title
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              _blogposts2.default[2].article
+	            )
 	          )
 	        )
 	      );
@@ -22761,7 +22788,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".postHolder {\n  display: flex;\n  flex-direction: row;\n}\n\nh1 {\n  text-align: center;\n}\n", ""]);
+	exports.push([module.id, ".postHolder {\n  display: flex;\n  flex-direction: row;\n}\n\nh1 {\n  text-align: center;\n}\n\n.blogPost {\n  margin: 10px;\n}\n", ""]);
 	
 	// exports
 
