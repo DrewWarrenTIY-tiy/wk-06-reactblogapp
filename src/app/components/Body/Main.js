@@ -2,27 +2,28 @@
 
 import React from 'react';
 
-import main from './Main.css';
+import ArticleContent from './ArticleContent';
 
-import blogData from '../blogposts.json';
+import main from './Main.css';
 
 export default class Main extends React.Component {
   render () {
+    console.log("Body.js has data",this.props.data);
     return(
       <div className="blogMain">
         <h1>Body</h1>
         <div className="postHolder">
           <div className="blogPost blogPostOne">
-            <h4>{blogData[0].title}</h4>
-            <p>{blogData[0].article}</p>
+            <h4>{this.props.data[0].title}</h4>
+            <ArticleContent data={this.props.data[0].article}/>
           </div>
           <div className="blogPost blogPostTwo">
-            <h4>{blogData[1].title}</h4>
-            <p>{blogData[1].article}</p>
+            <h4>{this.props.data[1].title}</h4>
+            <ArticleContent data={this.props.data[1].article}/>
           </div>
           <div className="blogPost blogPostThree">
-            <h4>{blogData[2].title}</h4>
-            <p>{blogData[2].article}</p>
+            <h4>{this.props.data[2].title}</h4>
+            <ArticleContent data={this.props.data[2].article}/>
           </div>
         </div>
       </div>

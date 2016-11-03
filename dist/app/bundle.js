@@ -22876,7 +22876,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'months' },
-	          'Months with a Post: Oogity Boogity Bippity Boppity Blizzgizzly Blagtaggly diggle dag',
+	          'Months with a Post:',
 	          _react2.default.createElement('br', null),
 	          _react2.default.createElement('br', null),
 	          _react2.default.createElement('br', null)

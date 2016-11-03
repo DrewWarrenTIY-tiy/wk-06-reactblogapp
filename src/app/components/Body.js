@@ -11,7 +11,7 @@ export default class Body extends React.Component {
   render () {
     return(
       <main className='body'>
-      <Main />
+      <Main data={this.props.data} />
       <Sidebar />
       </main>
     );
