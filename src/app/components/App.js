@@ -18,7 +18,6 @@ export default class App extends React.Component {
     }
   }
   render () {
-    console.log("App.js hasData", this.state.data);
     return (
       <div className='container'>
         <Header />

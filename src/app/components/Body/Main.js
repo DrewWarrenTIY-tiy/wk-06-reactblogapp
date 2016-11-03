@@ -2,13 +2,12 @@
 
 import React from 'react';
 
-import ArticleContent from './ArticleContent';
+import ArticleContent from './Main/ArticleContent';
 
 import main from './Main.css';
 
 export default class Main extends React.Component {
   render () {
-    console.log("Body.js has data",this.props.data);
     return(
       <div className="blogMain">
         <h1>Body</h1>
