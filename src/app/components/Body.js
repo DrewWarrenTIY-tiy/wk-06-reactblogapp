@@ -12,7 +12,7 @@ export default class Body extends React.Component {
     return(
       <main className='body'>
       <Main data={this.props.data} />
-      <Sidebar />
+      <Sidebar data={this.props.data} />
       </main>
     );
   }

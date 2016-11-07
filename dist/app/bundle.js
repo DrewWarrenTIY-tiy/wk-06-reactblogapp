@@ -21972,15 +21972,15 @@
 	
 	var _Body2 = _interopRequireDefault(_Body);
 	
-	var _Footer = __webpack_require__(/*! ./Footer */ 191);
+	var _Footer = __webpack_require__(/*! ./Footer */ 194);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
-	var _blogposts = __webpack_require__(/*! ./blogposts.json */ 194);
+	var _blogposts = __webpack_require__(/*! ./blogposts.json */ 197);
 	
 	var _blogposts2 = _interopRequireDefault(_blogposts);
 	
-	var _App = __webpack_require__(/*! ./App.css */ 195);
+	var _App = __webpack_require__(/*! ./App.css */ 198);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
@@ -22216,7 +22216,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".navBar {\n  list-style-type: square;\n  margin-right: .5em;\n}\n\nli {\n  list-style: none;\n  display: inline-block;\n  margin: .2em;\n  padding: 8px;\n  background-color: lightslategrey;\n  color: lightgrey;\n}\n\na {\n  text-decoration: none;\n  color: lightgrey;\n}\n", ""]);
+	exports.push([module.id, ".navBar {\n  list-style-type: square;\n  margin-right: .5em;\n}\n\n.navBar li {\n  list-style: none;\n  display: inline-block;\n  margin: .2em;\n  padding: 8px;\n  background-color: lightslategrey;\n  color: lightgrey;\n}\n\n.navBar a {\n  text-decoration: none;\n  color: lightgrey;\n}\n", ""]);
 	
 	// exports
 
@@ -22608,7 +22608,7 @@
 	
 	var _Sidebar2 = _interopRequireDefault(_Sidebar);
 	
-	var _Body = __webpack_require__(/*! ./Body.css */ 189);
+	var _Body = __webpack_require__(/*! ./Body.css */ 192);
 	
 	var _Body2 = _interopRequireDefault(_Body);
 	
@@ -22636,7 +22636,7 @@
 	        'main',
 	        { className: 'body' },
 	        _react2.default.createElement(_Main2.default, { data: this.props.data }),
-	        _react2.default.createElement(_Sidebar2.default, null)
+	        _react2.default.createElement(_Sidebar2.default, { data: this.props.data })
 	      );
 	    }
 	  }]);
@@ -22733,6 +22733,16 @@
 	              this.props.data[2].title
 	            ),
 	            _react2.default.createElement(_ArticleContent2.default, { data: this.props.data[2].article })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'blogPost blogPostFour' },
+	            _react2.default.createElement(
+	              'h4',
+	              null,
+	              this.props.data[3].title
+	            ),
+	            _react2.default.createElement(_ArticleContent2.default, { data: this.props.data[3].article })
 	          )
 	        )
 	      );
@@ -22867,7 +22877,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Sidebar = __webpack_require__(/*! ./Sidebar.css */ 187);
+	var _MonthList = __webpack_require__(/*! ./Sidebar/MonthList */ 187);
+	
+	var _MonthList2 = _interopRequireDefault(_MonthList);
+	
+	var _Sidebar = __webpack_require__(/*! ./Sidebar.css */ 190);
 	
 	var _Sidebar2 = _interopRequireDefault(_Sidebar);
 	
@@ -22904,7 +22918,7 @@
 	          { className: 'months' },
 	          'Months with a Post:',
 	          _react2.default.createElement('br', null),
-	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_MonthList2.default, { data: this.props.data }),
 	          _react2.default.createElement('br', null)
 	        )
 	      );
@@ -22918,6 +22932,124 @@
 
 /***/ },
 /* 187 */
+/*!******************************************************!*\
+  !*** ./src/app/components/Body/Sidebar/MonthList.js ***!
+  \******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _MonthList = __webpack_require__(/*! ./MonthList.css */ 188);
+	
+	var _MonthList2 = _interopRequireDefault(_MonthList);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var MonthList = function (_React$Component) {
+	  _inherits(MonthList, _React$Component);
+	
+	  function MonthList() {
+	    _classCallCheck(this, MonthList);
+	
+	    return _possibleConstructorReturn(this, (MonthList.__proto__ || Object.getPrototypeOf(MonthList)).apply(this, arguments));
+	  }
+	
+	  _createClass(MonthList, [{
+	    key: 'render',
+	    value: function render() {
+	      var monthArr = [];
+	      for (var i = 0; i < this.props.data.length; i++) {
+	        if (monthArr.includes(this.props.data[i].date.month) != true) monthArr.push(this.props.data[i].date.month);
+	      }
+	
+	      console.log(monthArr);
+	      return _react2.default.createElement(
+	        'ul',
+	        { className: 'monthList' },
+	        monthArr.map(function (month, index) {
+	          return _react2.default.createElement(
+	            'li',
+	            { key: index },
+	            _react2.default.createElement(
+	              'a',
+	              { href: '#' },
+	              month
+	            )
+	          );
+	        })
+	      );
+	    }
+	  }]);
+	
+	  return MonthList;
+	}(_react2.default.Component);
+	
+	exports.default = MonthList;
+
+/***/ },
+/* 188 */
+/*!*******************************************************!*\
+  !*** ./src/app/components/Body/Sidebar/MonthList.css ***!
+  \*******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../../../~/css-loader!./MonthList.css */ 189);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../../../~/style-loader/addStyles.js */ 178)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./MonthList.css", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./MonthList.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 189 */
+/*!**********************************************************************!*\
+  !*** ./~/css-loader!./src/app/components/Body/Sidebar/MonthList.css ***!
+  \**********************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../../../~/css-loader/lib/css-base.js */ 177)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".months li {\n  list-style: none;\n  display: inline-block;\n  margin: .2em;\n  padding: 8px;\n  background-color: lightslategrey;\n  color: darkred;\n}\n\n.months a {\n  text-decoration: none;\n  color: darkred;\n}\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 190 */
 /*!*********************************************!*\
   !*** ./src/app/components/Body/Sidebar.css ***!
   \*********************************************/
@@ -22926,7 +23058,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../../~/css-loader!./Sidebar.css */ 188);
+	var content = __webpack_require__(/*! !./../../../../~/css-loader!./Sidebar.css */ 191);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -22946,7 +23078,7 @@
 	}
 
 /***/ },
-/* 188 */
+/* 191 */
 /*!************************************************************!*\
   !*** ./~/css-loader!./src/app/components/Body/Sidebar.css ***!
   \************************************************************/
@@ -22963,7 +23095,7 @@
 
 
 /***/ },
-/* 189 */
+/* 192 */
 /*!*************************************!*\
   !*** ./src/app/components/Body.css ***!
   \*************************************/
@@ -22972,7 +23104,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./Body.css */ 190);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./Body.css */ 193);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -22992,7 +23124,7 @@
 	}
 
 /***/ },
-/* 190 */
+/* 193 */
 /*!****************************************************!*\
   !*** ./~/css-loader!./src/app/components/Body.css ***!
   \****************************************************/
@@ -23009,7 +23141,7 @@
 
 
 /***/ },
-/* 191 */
+/* 194 */
 /*!**************************************!*\
   !*** ./src/app/components/Footer.js ***!
   \**************************************/
@@ -23027,7 +23159,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Footer = __webpack_require__(/*! ./Footer.css */ 192);
+	var _Footer = __webpack_require__(/*! ./Footer.css */ 195);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
@@ -23069,7 +23201,7 @@
 	exports.default = Footer;
 
 /***/ },
-/* 192 */
+/* 195 */
 /*!***************************************!*\
   !*** ./src/app/components/Footer.css ***!
   \***************************************/
@@ -23078,7 +23210,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./Footer.css */ 193);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./Footer.css */ 196);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -23098,7 +23230,7 @@
 	}
 
 /***/ },
-/* 193 */
+/* 196 */
 /*!******************************************************!*\
   !*** ./~/css-loader!./src/app/components/Footer.css ***!
   \******************************************************/
@@ -23115,7 +23247,7 @@
 
 
 /***/ },
-/* 194 */
+/* 197 */
 /*!*******************************************!*\
   !*** ./src/app/components/blogposts.json ***!
   \*******************************************/
@@ -23137,6 +23269,16 @@
 		"id": "2",
 		"title": "Title Two",
 		"date": {
+			"month": "May",
+			"day": "15",
+			"year": "2016"
+		},
+		"article": ["Lorem ipsum dolor sit amet, pulvinar perspiciatis praesent lacus, at quam cupidatat porta. Sit elit imperdiet justo, vestibulum nec dui velit corporis, dolor maecenas suspendisse nulla parturient, nunc bibendum bibendum.  Urna mauris turpis mauris pellentesque nascetur quam, non sint dictumst faucibus, cursus felis ac.", "Tellus amet congue sodales sunt dolor eu, orci arcu integer dictumst wisi neque. Odio ac sit luctus justo eu. Tincidunt interdum vitae ac ipsum.", "Gravida porttitor sit nullam turpis, vestibulum pellentesque senectus sed rhoncus, vel nulla, adipiscing vitae. Odio orci ut orci sed rutrum est. Sit volutpat rhoncus quisque dolor, class et duis scelerisque. Cras scelerisque, integer lorem ut tellus at hendrerit, felis sodales nec cubilia, tristique sodales eu vestibulum id, est orci ex a. Scelerisque vel, in in quam a id purus, cubilia sapien elementum viverra id egestas aliquam, dis lectus venenatis in. Tempor amet et viverra ac velit, nulla ut praesent quam."],
+		"tags": ["tagOne", "tagTwo", "tagThree"]
+	}, {
+		"id": "3",
+		"title": "Title Three",
+		"date": {
 			"month": "June",
 			"day": "20",
 			"year": "2016"
@@ -23144,8 +23286,8 @@
 		"article": ["Lorem ipsum dolor sit amet, pulvinar perspiciatis praesent lacus, at quam cupidatat porta. Sit elit imperdiet justo, vestibulum nec dui velit corporis, dolor maecenas suspendisse nulla parturient, nunc bibendum bibendum. Pellentesque cubilia vestibulum pharetra in nulla nec, pede lacinia, fermentum wisi leo sed tortor duis quis. Turpis duis class quidem duis pulvinar, quisque nibh nam sed, eget neque luctus fermentum, tincidunt arcu a, quisque nulla elementum et nisl urna orci. Urna mauris turpis mauris pellentesque nascetur quam, non sint dictumst faucibus, cursus felis ac. Maecenas suscipit, ut mauris mi mi id donec, dictum sem pulvinar rhoncus. Donec viverra eu vivamus amet, massa aliquet, mauris nunc etiam metus eros in ut. Morbi diam, elit sed porta, orci habitasse tempus nibh, fringilla commodo sem ante enim aliquam rutrum.", "Tellus amet congue sodales sunt dolor eu, orci arcu integer dictumst wisi neque. Lorem vel leo, turpis lacinia neque porta consectetuer arcu, molestie hac nam. Taciti eu, libero nunc tristique imperdiet. Mauris integer volutpat, et leo sit neque arcu, iaculis eu, in nulla non fringilla libero tortor, ac vulputate nec. Non in amet nulla lacus dictum, sit elementum, aptent sociis quis, libero eleifend, risus lectus condimentum amet feugiat orci. Elit ante tincidunt mattis porttitor vitae, dapibus risus nullam. Odio ac sit luctus justo eu. Tincidunt interdum vitae ac ipsum.", "Gravida porttitor sit nullam turpis, vestibulum pellentesque senectus sed rhoncus, vel nulla, adipiscing vitae. Odio orci ut orci sed rutrum est. Sit volutpat rhoncus quisque dolor, class et duis scelerisque. Cras scelerisque, integer lorem ut tellus at hendrerit, felis sodales nec cubilia, tristique sodales eu vestibulum id, est orci ex a. Scelerisque vel, in in quam a id purus, cubilia sapien elementum viverra id egestas aliquam, dis lectus venenatis in. Tempor amet et viverra ac velit, nulla ut praesent quam."],
 		"tags": ["tagOne", "tagTwo", "tagFour"]
 	}, {
-		"id": "3",
-		"title": "Title Three",
+		"id": "4",
+		"title": "Title Four",
 		"date": {
 			"month": "July",
 			"day": "20",
@@ -23156,7 +23298,7 @@
 	}];
 
 /***/ },
-/* 195 */
+/* 198 */
 /*!************************************!*\
   !*** ./src/app/components/App.css ***!
   \************************************/
@@ -23165,7 +23307,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./App.css */ 196);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./App.css */ 199);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -23185,7 +23327,7 @@
 	}
 
 /***/ },
-/* 196 */
+/* 199 */
 /*!***************************************************!*\
   !*** ./~/css-loader!./src/app/components/App.css ***!
   \***************************************************/

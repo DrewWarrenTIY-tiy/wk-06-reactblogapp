@@ -1,18 +1,13 @@
-.navBar {
-  list-style-type: square;
-  margin-right: .5em;
-}
-
-.navBar li {
+.months li {
   list-style: none;
   display: inline-block;
   margin: .2em;
   padding: 8px;
   background-color: lightslategrey;
-  color: lightgrey;
+  color: darkred;
 }
 
-.navBar a {
+.months a {
   text-decoration: none;
-  color: lightgrey;
+  color: darkred;
 }
