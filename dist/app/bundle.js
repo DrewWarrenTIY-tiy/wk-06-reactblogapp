@@ -22920,6 +22920,14 @@
 	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(_MonthList2.default, { data: this.props.data }),
 	          _react2.default.createElement('br', null)
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'months' },
+	          'Unique Tags:',
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null)
 	        )
 	      );
 	    }
