@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import MonthList from './Sidebar/MonthList'
+
 import sidebar from './Sidebar.css';
 
 export default class Sidebar extends React.Component {
@@ -12,7 +14,7 @@ export default class Sidebar extends React.Component {
         <div className="months">
           Months with a Post:
           <br />
-          <br />
+          <MonthList data={this.props.data} />
           <br />
         </div>
       </div>

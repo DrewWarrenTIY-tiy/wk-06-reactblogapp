@@ -21976,7 +21976,11 @@
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
-	var _App = __webpack_require__(/*! ./App.css */ 194);
+	var _blogposts = __webpack_require__(/*! ./blogposts.json */ 194);
+	
+	var _blogposts2 = _interopRequireDefault(_blogposts);
+	
+	var _App = __webpack_require__(/*! ./App.css */ 195);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
@@ -21991,10 +21995,15 @@
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 	
-	  function App() {
+	  function App(props) {
 	    _classCallCheck(this, App);
 	
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+	
+	    _this.state = {
+	      data: _blogposts2.default
+	    };
+	    return _this;
 	  }
 	
 	  _createClass(App, [{
@@ -22007,7 +22016,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'content' },
-	          _react2.default.createElement(_Body2.default, null)
+	          _react2.default.createElement(_Body2.default, { data: this.state.data })
 	        ),
 	        _react2.default.createElement(_Footer2.default, null)
 	      );
@@ -22626,7 +22635,7 @@
 	      return _react2.default.createElement(
 	        'main',
 	        { className: 'body' },
-	        _react2.default.createElement(_Main2.default, null),
+	        _react2.default.createElement(_Main2.default, { data: this.props.data }),
 	        _react2.default.createElement(_Sidebar2.default, null)
 	      );
 	    }
@@ -22656,13 +22665,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Main = __webpack_require__(/*! ./Main.css */ 183);
+	var _ArticleContent = __webpack_require__(/*! ./Main/ArticleContent */ 183);
+	
+	var _ArticleContent2 = _interopRequireDefault(_ArticleContent);
+	
+	var _Main = __webpack_require__(/*! ./Main.css */ 184);
 	
 	var _Main2 = _interopRequireDefault(_Main);
-	
-	var _blogposts = __webpack_require__(/*! ../blogposts.json */ 185);
-	
-	var _blogposts2 = _interopRequireDefault(_blogposts);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22701,13 +22710,9 @@
 	            _react2.default.createElement(
 	              'h4',
 	              null,
-	              _blogposts2.default[0].title
+	              this.props.data[0].title
 	            ),
-	            _react2.default.createElement(
-	              'p',
-	              null,
-	              _blogposts2.default[0].article
-	            )
+	            _react2.default.createElement(_ArticleContent2.default, { data: this.props.data[0].article })
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -22715,13 +22720,9 @@
 	            _react2.default.createElement(
 	              'h4',
 	              null,
-	              _blogposts2.default[1].title
+	              this.props.data[1].title
 	            ),
-	            _react2.default.createElement(
-	              'p',
-	              null,
-	              _blogposts2.default[1].article
-	            )
+	            _react2.default.createElement(_ArticleContent2.default, { data: this.props.data[1].article })
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -22729,13 +22730,9 @@
 	            _react2.default.createElement(
 	              'h4',
 	              null,
-	              _blogposts2.default[2].title
+	              this.props.data[2].title
 	            ),
-	            _react2.default.createElement(
-	              'p',
-	              null,
-	              _blogposts2.default[2].article
-	            )
+	            _react2.default.createElement(_ArticleContent2.default, { data: this.props.data[2].article })
 	          )
 	        )
 	      );
@@ -22749,6 +22746,64 @@
 
 /***/ },
 /* 183 */
+/*!********************************************************!*\
+  !*** ./src/app/components/Body/Main/ArticleContent.js ***!
+  \********************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ArticleContent = function (_React$Component) {
+	  _inherits(ArticleContent, _React$Component);
+	
+	  function ArticleContent() {
+	    _classCallCheck(this, ArticleContent);
+	
+	    return _possibleConstructorReturn(this, (ArticleContent.__proto__ || Object.getPrototypeOf(ArticleContent)).apply(this, arguments));
+	  }
+	
+	  _createClass(ArticleContent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        this.props.data.map(function (paragraph, index) {
+	          return _react2.default.createElement(
+	            'p',
+	            { key: index },
+	            paragraph
+	          );
+	        })
+	      );
+	    }
+	  }]);
+	
+	  return ArticleContent;
+	}(_react2.default.Component);
+	
+	exports.default = ArticleContent;
+
+/***/ },
+/* 184 */
 /*!******************************************!*\
   !*** ./src/app/components/Body/Main.css ***!
   \******************************************/
@@ -22757,7 +22812,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../../~/css-loader!./Main.css */ 184);
+	var content = __webpack_require__(/*! !./../../../../~/css-loader!./Main.css */ 185);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -22777,7 +22832,7 @@
 	}
 
 /***/ },
-/* 184 */
+/* 185 */
 /*!*********************************************************!*\
   !*** ./~/css-loader!./src/app/components/Body/Main.css ***!
   \*********************************************************/
@@ -22792,35 +22847,6 @@
 	
 	// exports
 
-
-/***/ },
-/* 185 */
-/*!*******************************************!*\
-  !*** ./src/app/components/blogposts.json ***!
-  \*******************************************/
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	module.exports = [{
-		"id": "1",
-		"title": "Title One",
-		"date": "May 20, 2016 10:00",
-		"article": "Lorem ipsum dolor sit amet, pulvinar perspiciatis praesent lacus, at quam cupidatat porta. Sit elit imperdiet justo, vestibulum nec dui velit corporis, dolor maecenas suspendisse nulla parturient, nunc bibendum bibendum. Pellentesque cubilia vestibulum pharetra in nulla nec, pede lacinia, fermentum wisi leo sed tortor duis quis. Turpis duis class quidem duis pulvinar, quisque nibh nam sed, eget neque luctus fermentum, tincidunt arcu a, quisque nulla elementum et nisl urna orci. Urna mauris turpis mauris pellentesque nascetur quam, non sint dictumst faucibus, cursus felis ac. Maecenas suscipit, ut mauris mi mi id donec, dictum sem pulvinar rhoncus. Donec viverra eu vivamus amet, massa aliquet, mauris nunc etiam metus eros in ut. Morbi diam, elit sed porta, orci habitasse tempus nibh, fringilla commodo sem ante enim aliquam rutrum. \n Tellus amet congue sodales sunt dolor eu, orci arcu integer dictumst wisi neque. Lorem vel leo, turpis lacinia neque porta consectetuer arcu, molestie hac nam. Taciti eu, libero nunc tristique imperdiet. Mauris integer volutpat, et leo sit neque arcu, iaculis eu, in nulla non fringilla libero tortor, ac vulputate nec. Non in amet nulla lacus dictum, sit elementum, aptent sociis quis, libero eleifend, risus lectus condimentum amet feugiat orci. Elit ante tincidunt mattis porttitor vitae, dapibus risus nullam. Odio ac sit luctus justo eu. Tincidunt interdum vitae ac ipsum. \nGravida porttitor sit nullam turpis, vestibulum pellentesque senectus sed rhoncus, vel nulla, adipiscing vitae. Odio orci ut orci sed rutrum est. Sit volutpat rhoncus quisque dolor, class et duis scelerisque. Cras scelerisque, integer lorem ut tellus at hendrerit, felis sodales nec cubilia, tristique sodales eu vestibulum id, est orci ex a. Scelerisque vel, in in quam a id purus, cubilia sapien elementum viverra id egestas aliquam, dis lectus venenatis in. Tempor amet et viverra ac velit, nulla ut praesent quam.",
-		"tags": ["tagOne", "tagTwo", "tagThree"]
-	}, {
-		"id": "2",
-		"title": "Title Two",
-		"date": "June 20, 2016 12:00",
-		"article": " Lorem ipsum dolor sit amet, pulvinar perspiciatis praesent lacus, at quam cupidatat porta. Sit elit imperdiet justo, vestibulum nec dui velit corporis, dolor maecenas suspendisse nulla parturient, nunc bibendum bibendum. Pellentesque cubilia vestibulum pharetra in nulla nec, pede lacinia, fermentum wisi leo sed tortor duis quis. Turpis duis class quidem duis pulvinar, quisque nibh nam sed, eget neque luctus fermentum, tincidunt arcu a, quisque nulla elementum et nisl urna orci. Urna mauris turpis mauris pellentesque nascetur quam, non sint dictumst faucibus, cursus felis ac. Maecenas suscipit, ut mauris mi mi id donec, dictum sem pulvinar rhoncus. Donec viverra eu vivamus amet, massa aliquet, mauris nunc etiam metus eros in ut. Morbi diam, elit sed porta, orci habitasse tempus nibh, fringilla commodo sem ante enim aliquam rutrum. \nTellus amet congue sodales sunt dolor eu, orci arcu integer dictumst wisi neque. Lorem vel leo, turpis lacinia neque porta consectetuer arcu, molestie hac nam. Taciti eu, libero nunc tristique imperdiet. Mauris integer volutpat, et leo sit neque arcu, iaculis eu, in nulla non fringilla libero tortor, ac vulputate nec. Non in amet nulla lacus dictum, sit elementum, aptent sociis quis, libero eleifend, risus lectus condimentum amet feugiat orci. Elit ante tincidunt mattis porttitor vitae, dapibus risus nullam. Odio ac sit luctus justo eu. Tincidunt interdum vitae ac ipsum. \nGravida porttitor sit nullam turpis, vestibulum pellentesque senectus sed rhoncus, vel nulla, adipiscing vitae. Odio orci ut orci sed rutrum est. Sit volutpat rhoncus quisque dolor, class et duis scelerisque. Cras scelerisque, integer lorem ut tellus at hendrerit, felis sodales nec cubilia, tristique sodales eu vestibulum id, est orci ex a. Scelerisque vel, in in quam a id purus, cubilia sapien elementum viverra id egestas aliquam, dis lectus venenatis in. Tempor amet et viverra ac velit, nulla ut praesent quam.",
-		"tags": ["tagOne", "tagTwo", "tagFour"]
-	}, {
-		"id": "3",
-		"title": "Title Three",
-		"date": "July 20, 2016 14:00",
-		"article": "Lorem ipsum dolor sit amet, pulvinar perspiciatis praesent lacus, at quam cupidatat porta. Sit elit imperdiet justo, vestibulum nec dui velit corporis, dolor maecenas suspendisse nulla parturient, nunc bibendum bibendum. Pellentesque cubilia vestibulum pharetra in nulla nec, pede lacinia, fermentum wisi leo sed tortor duis quis. Turpis duis class quidem duis pulvinar, quisque nibh nam sed, eget neque luctus fermentum, tincidunt arcu a, quisque nulla elementum et nisl urna orci. Urna mauris turpis mauris pellentesque nascetur quam, non sint dictumst faucibus, cursus felis ac. Maecenas suscipit, ut mauris mi mi id donec, dictum sem pulvinar rhoncus. Donec viverra eu vivamus amet, massa aliquet, mauris nunc etiam metus eros in ut. Morbi diam, elit sed porta, orci habitasse tempus nibh, fringilla commodo sem ante enim aliquam rutrum. \nTellus amet congue sodales sunt dolor eu, orci arcu integer dictumst wisi neque. Lorem vel leo, turpis lacinia neque porta consectetuer arcu, molestie hac nam. Taciti eu, libero nunc tristique imperdiet. Mauris integer volutpat, et leo sit neque arcu, iaculis eu, in nulla non fringilla libero tortor, ac vulputate nec. Non in amet nulla lacus dictum, sit elementum, aptent sociis quis, libero eleifend, risus lectus condimentum amet feugiat orci. Elit ante tincidunt mattis porttitor vitae, dapibus risus nullam. Odio ac sit luctus justo eu. Tincidunt interdum vitae ac ipsum. \nGravida porttitor sit nullam turpis, vestibulum pellentesque senectus sed rhoncus, vel nulla, adipiscing vitae. Odio orci ut orci sed rutrum est. Sit volutpat rhoncus quisque dolor, class et duis scelerisque. Cras scelerisque, integer lorem ut tellus at hendrerit, felis sodales nec cubilia, tristique sodales eu vestibulum id, est orci ex a. Scelerisque vel, in in quam a id purus, cubilia sapien elementum viverra id egestas aliquam, dis lectus venenatis in. Tempor amet et viverra ac velit, nulla ut praesent quam.",
-		"tags": ["tagOne", "tagFour", "tagFive"]
-	}];
 
 /***/ },
 /* 186 */
@@ -23090,6 +23116,47 @@
 
 /***/ },
 /* 194 */
+/*!*******************************************!*\
+  !*** ./src/app/components/blogposts.json ***!
+  \*******************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	module.exports = [{
+		"id": "1",
+		"title": "Title One",
+		"date": {
+			"month": "May",
+			"day": "10",
+			"year": "2016"
+		},
+		"article": ["Lorem ipsum dolor sit amet, pulvinar perspiciatis praesent lacus, at quam cupidatat porta. Sit elit imperdiet justo, vestibulum nec dui velit corporis, dolor maecenas suspendisse nulla parturient, nunc bibendum bibendum.  Urna mauris turpis mauris pellentesque nascetur quam, non sint dictumst faucibus, cursus felis ac.", "Tellus amet congue sodales sunt dolor eu, orci arcu integer dictumst wisi neque. Odio ac sit luctus justo eu. Tincidunt interdum vitae ac ipsum.", "Gravida porttitor sit nullam turpis, vestibulum pellentesque senectus sed rhoncus, vel nulla, adipiscing vitae. Odio orci ut orci sed rutrum est. Sit volutpat rhoncus quisque dolor, class et duis scelerisque. Cras scelerisque, integer lorem ut tellus at hendrerit, felis sodales nec cubilia, tristique sodales eu vestibulum id, est orci ex a. Scelerisque vel, in in quam a id purus, cubilia sapien elementum viverra id egestas aliquam, dis lectus venenatis in. Tempor amet et viverra ac velit, nulla ut praesent quam."],
+		"tags": ["tagOne", "tagTwo", "tagThree"]
+	}, {
+		"id": "2",
+		"title": "Title Two",
+		"date": {
+			"month": "June",
+			"day": "20",
+			"year": "2016"
+		},
+		"article": ["Lorem ipsum dolor sit amet, pulvinar perspiciatis praesent lacus, at quam cupidatat porta. Sit elit imperdiet justo, vestibulum nec dui velit corporis, dolor maecenas suspendisse nulla parturient, nunc bibendum bibendum. Pellentesque cubilia vestibulum pharetra in nulla nec, pede lacinia, fermentum wisi leo sed tortor duis quis. Turpis duis class quidem duis pulvinar, quisque nibh nam sed, eget neque luctus fermentum, tincidunt arcu a, quisque nulla elementum et nisl urna orci. Urna mauris turpis mauris pellentesque nascetur quam, non sint dictumst faucibus, cursus felis ac. Maecenas suscipit, ut mauris mi mi id donec, dictum sem pulvinar rhoncus. Donec viverra eu vivamus amet, massa aliquet, mauris nunc etiam metus eros in ut. Morbi diam, elit sed porta, orci habitasse tempus nibh, fringilla commodo sem ante enim aliquam rutrum.", "Tellus amet congue sodales sunt dolor eu, orci arcu integer dictumst wisi neque. Lorem vel leo, turpis lacinia neque porta consectetuer arcu, molestie hac nam. Taciti eu, libero nunc tristique imperdiet. Mauris integer volutpat, et leo sit neque arcu, iaculis eu, in nulla non fringilla libero tortor, ac vulputate nec. Non in amet nulla lacus dictum, sit elementum, aptent sociis quis, libero eleifend, risus lectus condimentum amet feugiat orci. Elit ante tincidunt mattis porttitor vitae, dapibus risus nullam. Odio ac sit luctus justo eu. Tincidunt interdum vitae ac ipsum.", "Gravida porttitor sit nullam turpis, vestibulum pellentesque senectus sed rhoncus, vel nulla, adipiscing vitae. Odio orci ut orci sed rutrum est. Sit volutpat rhoncus quisque dolor, class et duis scelerisque. Cras scelerisque, integer lorem ut tellus at hendrerit, felis sodales nec cubilia, tristique sodales eu vestibulum id, est orci ex a. Scelerisque vel, in in quam a id purus, cubilia sapien elementum viverra id egestas aliquam, dis lectus venenatis in. Tempor amet et viverra ac velit, nulla ut praesent quam."],
+		"tags": ["tagOne", "tagTwo", "tagFour"]
+	}, {
+		"id": "3",
+		"title": "Title Three",
+		"date": {
+			"month": "July",
+			"day": "20",
+			"year": "2016"
+		},
+		"article": ["Lorem ipsum dolor sit amet, pulvinar perspiciatis praesent lacus, at quam cupidatat porta. Sit elit imperdiet justo, vestibulum nec dui velit corporis, dolor maecenas suspendisse nulla parturient, nunc bibendum bibendum. Pellentesque cubilia vestibulum pharetra in nulla nec, pede lacinia, fermentum wisi leo sed tortor duis quis. Turpis duis class quidem duis pulvinar, quisque nibh nam sed, eget neque luctus fermentum, tincidunt arcu a, quisque nulla elementum et nisl urna orci. Urna mauris turpis mauris pellentesque nascetur quam, non sint dictumst faucibus, cursus felis ac. Maecenas suscipit, ut mauris mi mi id donec, dictum sem pulvinar rhoncus. Donec viverra eu vivamus amet, massa aliquet, mauris nunc etiam metus eros in ut. Morbi diam, elit sed porta, orci habitasse tempus nibh, fringilla commodo sem ante enim aliquam rutrum.", "Tellus amet congue sodales sunt dolor eu, orci arcu integer dictumst wisi neque. Lorem vel leo, turpis lacinia neque porta consectetuer arcu, molestie hac nam. Taciti eu, libero nunc tristique imperdiet. Mauris integer volutpat, et leo sit neque arcu, iaculis eu, in nulla non fringilla libero tortor, ac vulputate nec. Non in amet nulla lacus dictum, sit elementum, aptent sociis quis, libero eleifend, risus lectus condimentum amet feugiat orci. Elit ante tincidunt mattis porttitor vitae, dapibus risus nullam. Odio ac sit luctus justo eu. Tincidunt interdum vitae ac ipsum.", "Gravida porttitor sit nullam turpis, vestibulum pellentesque senectus sed rhoncus, vel nulla, adipiscing vitae. Odio orci ut orci sed rutrum est. Sit volutpat rhoncus quisque dolor, class et duis scelerisque. Cras scelerisque, integer lorem ut tellus at hendrerit, felis sodales nec cubilia, tristique sodales eu vestibulum id, est orci ex a. Scelerisque vel, in in quam a id purus, cubilia sapien elementum viverra id egestas aliquam, dis lectus venenatis in. Tempor amet et viverra ac velit, nulla ut praesent quam."],
+		"tags": ["tagOne", "tagFour", "tagFive"]
+	}];
+
+/***/ },
+/* 195 */
 /*!************************************!*\
   !*** ./src/app/components/App.css ***!
   \************************************/
@@ -23098,7 +23165,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./App.css */ 195);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./App.css */ 196);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -23118,7 +23185,7 @@
 	}
 
 /***/ },
-/* 195 */
+/* 196 */
 /*!***************************************************!*\
   !*** ./~/css-loader!./src/app/components/App.css ***!
   \***************************************************/

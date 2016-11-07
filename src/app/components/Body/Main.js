@@ -24,6 +24,10 @@ export default class Main extends React.Component {
             <h4>{this.props.data[2].title}</h4>
             <ArticleContent data={this.props.data[2].article}/>
           </div>
+          <div className="blogPost blogPostFour">
+            <h4>{this.props.data[3].title}</h4>
+            <ArticleContent data={this.props.data[3].article}/>
+          </div>
         </div>
       </div>
     );
