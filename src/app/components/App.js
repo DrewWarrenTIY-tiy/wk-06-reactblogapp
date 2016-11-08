@@ -16,13 +16,18 @@ export default class App extends React.Component {
     this.state = {
       data: blogData
     }
+  };
+
+  clickadoodle(pizza) {
+    console.log(pizza);
   }
+
   render () {
     return (
       <div className='container'>
         <Header />
         <div className='content'>
-          <Body data={this.state.data}/>
+          <Body clickadoodle={this.clickadoodle.bind(this)} data={this.state.data}/>
         </div>
         <Footer />
       </div>

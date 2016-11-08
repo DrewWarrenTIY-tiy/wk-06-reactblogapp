@@ -22711,9 +22711,9 @@
 	              _react2.default.createElement(
 	                'h4',
 	                { key: ("blogTitle", i) },
-	                this.props.data[i].title
+	                a[i].title
 	              ),
-	              _react2.default.createElement(_ArticleContent2.default, { data: this.props.data[i].article })
+	              _react2.default.createElement(_ArticleContent2.default, { data: a[i].article })
 	            );
 	          })
 	        )
