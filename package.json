@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fee-slc-2016/react-memory-game.git"
+    "url": "git+https://github.com/DrewWarrenTIY-tiy/wk-06-reactblogapp.git"
   },
   "author": "Drew Warren <drewwarrentiy@gmail.com> (http://github.com/drewwarrentiy)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fee-slc-2016/react-memory-game/issues"
+    "url": "https://github.com/DrewWarrenTIY-tiy/wk-06-reactblogapp.git"
   },
-  "homepage": "https://github.com/fee-slc-2016/react-memory-game#readme",
+  "homepage": "https://github.com/DrewWarrenTIY-tiy/wk-06-reactblogapp/issues",
   "devDependencies": {
     "babel-core": "^6.18.0",
     "babel-preset-es2015": "^6.18.0",

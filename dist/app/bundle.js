@@ -22007,6 +22007,11 @@
 	  }
 	
 	  _createClass(App, [{
+	    key: 'clickadoodle',
+	    value: function clickadoodle(pizza) {
+	      console.log(pizza);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -22016,7 +22021,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'content' },
-	          _react2.default.createElement(_Body2.default, { data: this.state.data })
+	          _react2.default.createElement(_Body2.default, { clickadoodle: this.clickadoodle.bind(this), data: this.state.data })
 	        ),
 	        _react2.default.createElement(_Footer2.default, null)
 	      );
@@ -22636,7 +22641,7 @@
 	        'main',
 	        { className: 'body' },
 	        _react2.default.createElement(_Main2.default, { data: this.props.data }),
-	        _react2.default.createElement(_Sidebar2.default, { data: this.props.data })
+	        _react2.default.createElement(_Sidebar2.default, { clickadoodle: this.props.clickadoodle, data: this.props.data })
 	      );
 	    }
 	  }]);
@@ -22894,7 +22899,7 @@
 	          { className: 'months' },
 	          'Months with a Post:',
 	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(_MonthList2.default, { data: this.props.data }),
+	          _react2.default.createElement(_MonthList2.default, { clickadoodle: this.props.clickadoodle, data: this.props.data }),
 	          _react2.default.createElement('br', null)
 	        ),
 	        _react2.default.createElement(
@@ -22955,8 +22960,16 @@
 	  }
 	
 	  _createClass(MonthList, [{
+	    key: 'handleClick',
+	    value: function handleClick(e) {
+	      var pizza = "pizza";
+	      this.props.clickadoodle(pizza);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+	
 	      var monthArr = [];
 	      for (var i = 0; i < this.props.data.length; i++) {
 	        if (monthArr.includes(this.props.data[i].date.month) != true) monthArr.push(this.props.data[i].date.month);
@@ -22971,8 +22984,10 @@
 	            { key: index },
 	            _react2.default.createElement(
 	              'a',
-	              { href: '#' },
-	              month
+	              { onClick: _this2.handleClick.bind(_this2), href: '#' },
+	              ' ',
+	              month,
+	              ' '
 	            )
 	          );
 	        })
