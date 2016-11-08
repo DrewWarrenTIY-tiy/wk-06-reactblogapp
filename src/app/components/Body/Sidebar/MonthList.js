@@ -11,8 +11,7 @@ export default class MonthList extends React.Component {
       if (monthArr.includes(this.props.data[i].date.month) != true)
       monthArr.push(this.props.data[i].date.month);
     }
-
-    console.log(monthArr);
+    
     return (
       <ul className="monthList">
         {monthArr.map(function(month, index){

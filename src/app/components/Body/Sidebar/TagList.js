@@ -14,7 +14,6 @@ export default class TagList extends React.Component {
       }
     }
 
-    console.log(tagArr);
     return (
       <ul className="tagList">
         {tagArr.map(function(tag, index){

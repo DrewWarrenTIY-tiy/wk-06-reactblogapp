@@ -22704,46 +22704,18 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'postHolder' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'blogPost blogPostOne' },
-	            _react2.default.createElement(
-	              'h4',
-	              null,
-	              this.props.data[0].title
-	            ),
-	            _react2.default.createElement(_ArticleContent2.default, { data: this.props.data[0].article })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'blogPost blogPostTwo' },
-	            _react2.default.createElement(
-	              'h4',
-	              null,
-	              this.props.data[1].title
-	            ),
-	            _react2.default.createElement(_ArticleContent2.default, { data: this.props.data[1].article })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'blogPost blogPostThree' },
-	            _react2.default.createElement(
-	              'h4',
-	              null,
-	              this.props.data[2].title
-	            ),
-	            _react2.default.createElement(_ArticleContent2.default, { data: this.props.data[2].article })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'blogPost blogPostFour' },
-	            _react2.default.createElement(
-	              'h4',
-	              null,
-	              this.props.data[3].title
-	            ),
-	            _react2.default.createElement(_ArticleContent2.default, { data: this.props.data[3].article })
-	          )
+	          this.props.data.map(function (c, i, a) {
+	            return _react2.default.createElement(
+	              'div',
+	              { key: ("blogPost", i), className: 'blogPost' },
+	              _react2.default.createElement(
+	                'h4',
+	                { key: ("blogTitle", i) },
+	                this.props.data[i].title
+	              ),
+	              _react2.default.createElement(_ArticleContent2.default, { data: this.props.data[i].article })
+	            );
+	          })
 	        )
 	      );
 	    }
@@ -22990,7 +22962,6 @@
 	        if (monthArr.includes(this.props.data[i].date.month) != true) monthArr.push(this.props.data[i].date.month);
 	      }
 	
-	      console.log(monthArr);
 	      return _react2.default.createElement(
 	        'ul',
 	        { className: 'monthList' },
@@ -23110,7 +23081,6 @@
 	        }
 	      }
 	
-	      console.log(tagArr);
 	      return _react2.default.createElement(
 	        'ul',
 	        { className: 'tagList' },

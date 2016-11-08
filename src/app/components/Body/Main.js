@@ -12,22 +12,14 @@ export default class Main extends React.Component {
       <div className="blogMain">
         <h1>Body</h1>
         <div className="postHolder">
-          <div className="blogPost blogPostOne">
-            <h4>{this.props.data[0].title}</h4>
-            <ArticleContent data={this.props.data[0].article}/>
-          </div>
-          <div className="blogPost blogPostTwo">
-            <h4>{this.props.data[1].title}</h4>
-            <ArticleContent data={this.props.data[1].article}/>
-          </div>
-          <div className="blogPost blogPostThree">
-            <h4>{this.props.data[2].title}</h4>
-            <ArticleContent data={this.props.data[2].article}/>
-          </div>
-          <div className="blogPost blogPostFour">
-            <h4>{this.props.data[3].title}</h4>
-            <ArticleContent data={this.props.data[3].article}/>
-          </div>
+          {this.props.data.map(function(c,i,a) {
+            return (
+              <div key={"blogPost", i} className="blogPost">
+                <h4 key={"blogTitle", i}>{a[i].title}</h4>
+                <ArticleContent data={a[i].article}/>
+              </div>
+            )
+          })}
         </div>
       </div>
     );
