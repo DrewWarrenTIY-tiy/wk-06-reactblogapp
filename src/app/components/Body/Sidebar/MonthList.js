@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import css from './MonthList.css'
+import css from './MonthList.css';
 
 export default class MonthList extends React.Component {
   render () {

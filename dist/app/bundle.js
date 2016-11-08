@@ -21972,15 +21972,15 @@
 	
 	var _Body2 = _interopRequireDefault(_Body);
 	
-	var _Footer = __webpack_require__(/*! ./Footer */ 194);
+	var _Footer = __webpack_require__(/*! ./Footer */ 197);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
-	var _blogposts = __webpack_require__(/*! ./blogposts.json */ 197);
+	var _blogposts = __webpack_require__(/*! ./blogposts.json */ 200);
 	
 	var _blogposts2 = _interopRequireDefault(_blogposts);
 	
-	var _App = __webpack_require__(/*! ./App.css */ 198);
+	var _App = __webpack_require__(/*! ./App.css */ 201);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
@@ -22608,7 +22608,7 @@
 	
 	var _Sidebar2 = _interopRequireDefault(_Sidebar);
 	
-	var _Body = __webpack_require__(/*! ./Body.css */ 192);
+	var _Body = __webpack_require__(/*! ./Body.css */ 195);
 	
 	var _Body2 = _interopRequireDefault(_Body);
 	
@@ -22881,7 +22881,11 @@
 	
 	var _MonthList2 = _interopRequireDefault(_MonthList);
 	
-	var _Sidebar = __webpack_require__(/*! ./Sidebar.css */ 190);
+	var _TagList = __webpack_require__(/*! ./Sidebar/TagList */ 190);
+	
+	var _TagList2 = _interopRequireDefault(_TagList);
+	
+	var _Sidebar = __webpack_require__(/*! ./Sidebar.css */ 193);
 	
 	var _Sidebar2 = _interopRequireDefault(_Sidebar);
 	
@@ -22923,10 +22927,10 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'months' },
+	          { className: 'tags' },
 	          'Unique Tags:',
 	          _react2.default.createElement('br', null),
-	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_TagList2.default, { data: this.props.data }),
 	          _react2.default.createElement('br', null)
 	        )
 	      );
@@ -23058,6 +23062,126 @@
 
 /***/ },
 /* 190 */
+/*!****************************************************!*\
+  !*** ./src/app/components/Body/Sidebar/TagList.js ***!
+  \****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _TagList = __webpack_require__(/*! ./TagList.css */ 191);
+	
+	var _TagList2 = _interopRequireDefault(_TagList);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var TagList = function (_React$Component) {
+	  _inherits(TagList, _React$Component);
+	
+	  function TagList() {
+	    _classCallCheck(this, TagList);
+	
+	    return _possibleConstructorReturn(this, (TagList.__proto__ || Object.getPrototypeOf(TagList)).apply(this, arguments));
+	  }
+	
+	  _createClass(TagList, [{
+	    key: 'render',
+	    value: function render() {
+	      var tagArr = [];
+	      for (var i = 0; i < this.props.data.length; i++) {
+	        for (var j = 0; j < this.props.data[i].tags.length; j++) {
+	          if (tagArr.includes(this.props.data[i].tags[j]) != true) tagArr.push(this.props.data[i].tags[j]);
+	        }
+	      }
+	
+	      console.log(tagArr);
+	      return _react2.default.createElement(
+	        'ul',
+	        { className: 'tagList' },
+	        tagArr.map(function (tag, index) {
+	          return _react2.default.createElement(
+	            'li',
+	            { key: index },
+	            _react2.default.createElement(
+	              'a',
+	              { href: '#' },
+	              tag
+	            )
+	          );
+	        })
+	      );
+	    }
+	  }]);
+	
+	  return TagList;
+	}(_react2.default.Component);
+	
+	exports.default = TagList;
+
+/***/ },
+/* 191 */
+/*!*****************************************************!*\
+  !*** ./src/app/components/Body/Sidebar/TagList.css ***!
+  \*****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../../../~/css-loader!./TagList.css */ 192);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../../../~/style-loader/addStyles.js */ 178)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./TagList.css", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./TagList.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 192 */
+/*!********************************************************************!*\
+  !*** ./~/css-loader!./src/app/components/Body/Sidebar/TagList.css ***!
+  \********************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../../../~/css-loader/lib/css-base.js */ 177)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".tags li {\n  list-style: none;\n  display: inline-block;\n  margin: .2em;\n  padding: 8px;\n  background-color: lightslategrey;\n  color: black;\n}\n\n.tags a {\n  text-decoration: none;\n  color: black;\n}\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 193 */
 /*!*********************************************!*\
   !*** ./src/app/components/Body/Sidebar.css ***!
   \*********************************************/
@@ -23066,7 +23190,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../../~/css-loader!./Sidebar.css */ 191);
+	var content = __webpack_require__(/*! !./../../../../~/css-loader!./Sidebar.css */ 194);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -23086,7 +23210,7 @@
 	}
 
 /***/ },
-/* 191 */
+/* 194 */
 /*!************************************************************!*\
   !*** ./~/css-loader!./src/app/components/Body/Sidebar.css ***!
   \************************************************************/
@@ -23103,7 +23227,7 @@
 
 
 /***/ },
-/* 192 */
+/* 195 */
 /*!*************************************!*\
   !*** ./src/app/components/Body.css ***!
   \*************************************/
@@ -23112,7 +23236,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./Body.css */ 193);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./Body.css */ 196);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -23132,7 +23256,7 @@
 	}
 
 /***/ },
-/* 193 */
+/* 196 */
 /*!****************************************************!*\
   !*** ./~/css-loader!./src/app/components/Body.css ***!
   \****************************************************/
@@ -23149,7 +23273,7 @@
 
 
 /***/ },
-/* 194 */
+/* 197 */
 /*!**************************************!*\
   !*** ./src/app/components/Footer.js ***!
   \**************************************/
@@ -23167,7 +23291,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Footer = __webpack_require__(/*! ./Footer.css */ 195);
+	var _Footer = __webpack_require__(/*! ./Footer.css */ 198);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
@@ -23209,7 +23333,7 @@
 	exports.default = Footer;
 
 /***/ },
-/* 195 */
+/* 198 */
 /*!***************************************!*\
   !*** ./src/app/components/Footer.css ***!
   \***************************************/
@@ -23218,7 +23342,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./Footer.css */ 196);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./Footer.css */ 199);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -23238,7 +23362,7 @@
 	}
 
 /***/ },
-/* 196 */
+/* 199 */
 /*!******************************************************!*\
   !*** ./~/css-loader!./src/app/components/Footer.css ***!
   \******************************************************/
@@ -23255,7 +23379,7 @@
 
 
 /***/ },
-/* 197 */
+/* 200 */
 /*!*******************************************!*\
   !*** ./src/app/components/blogposts.json ***!
   \*******************************************/
@@ -23306,7 +23430,7 @@
 	}];
 
 /***/ },
-/* 198 */
+/* 201 */
 /*!************************************!*\
   !*** ./src/app/components/App.css ***!
   \************************************/
@@ -23315,7 +23439,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./App.css */ 199);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./App.css */ 202);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
@@ -23335,7 +23459,7 @@
 	}
 
 /***/ },
-/* 199 */
+/* 202 */
 /*!***************************************************!*\
   !*** ./~/css-loader!./src/app/components/App.css ***!
   \***************************************************/
