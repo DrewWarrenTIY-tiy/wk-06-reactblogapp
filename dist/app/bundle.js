@@ -22718,6 +22718,16 @@
 	                { key: ("blogTitle", i) },
 	                a[i].title
 	              ),
+	              _react2.default.createElement(
+	                'h3',
+	                { key: ("blogDate", i) },
+	                a[i].date.month,
+	                ' + ", " + ',
+	                a[i].date.day,
+	                ' + " " + ',
+	                a[i].date.year,
+	                ' '
+	              ),
 	              _react2.default.createElement(_ArticleContent2.default, { data: a[i].article })
 	            );
 	          })
