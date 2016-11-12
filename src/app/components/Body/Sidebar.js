@@ -15,13 +15,17 @@ export default class Sidebar extends React.Component {
         <div className="months">
           Months with a Post:
           <br />
-          <MonthList clickadoodle={this.props.clickadoodle} data={this.props.data} />
+          <MonthList
+            clickadoodle={this.props.clickadoodle} data={this.props.data}
+            monthArr={this.props.monthArr} />
           <br />
         </div>
         <div className="tags">
           Unique Tags:
           <br />
-          <TagList data={this.props.data} />
+          <TagList
+            data={this.props.data}
+            tagArr={this.props.tagArr} />
           <br />
         </div>
       </div>

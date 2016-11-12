@@ -8,11 +8,15 @@ import Sidebar from './Body/Sidebar';
 import body from './Body.css';
 
 export default class Body extends React.Component {
+
   render () {
     return(
       <main className='body'>
       <Main data={this.props.data} />
-      <Sidebar clickadoodle={this.props.clickadoodle} data={this.props.data} />
+      <Sidebar
+        clickadoodle={this.props.clickadoodle} data={this.props.data}
+        monthArr={this.props.monthArr}
+        tagArr={this.props.tagArr} />
       </main>
     );
   }
