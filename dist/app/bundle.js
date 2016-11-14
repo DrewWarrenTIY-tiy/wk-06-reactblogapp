@@ -21972,13 +21972,9 @@
 	
 	var _Body2 = _interopRequireDefault(_Body);
 	
-	var _Footer = __webpack_require__(/*! ./Footer */ 197);
+	var _Footer = __webpack_require__(/*! ./Footer */ 198);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
-	
-	var _blogposts = __webpack_require__(/*! ./blogposts.json */ 200);
-	
-	var _blogposts2 = _interopRequireDefault(_blogposts);
 	
 	var _App = __webpack_require__(/*! ./App.css */ 201);
 	
@@ -21995,23 +21991,13 @@
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 	
-	  function App(props) {
+	  function App() {
 	    _classCallCheck(this, App);
 	
-	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-	
-	    _this.state = {
-	      data: _blogposts2.default
-	    };
-	    return _this;
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
 	  }
 	
 	  _createClass(App, [{
-	    key: 'clickadoodle',
-	    value: function clickadoodle(pizza) {
-	      console.log(pizza);
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -22021,7 +22007,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'content' },
-	          _react2.default.createElement(_Body2.default, { clickadoodle: this.clickadoodle.bind(this), data: this.state.data })
+	          _react2.default.createElement(_Body2.default, null)
 	        ),
 	        _react2.default.createElement(_Footer2.default, null)
 	      );
@@ -22617,6 +22603,10 @@
 	
 	var _Body2 = _interopRequireDefault(_Body);
 	
+	var _blogposts = __webpack_require__(/*! ./blogposts.json */ 197);
+	
+	var _blogposts2 = _interopRequireDefault(_blogposts);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22625,23 +22615,50 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	var monthArr = [];
+	for (var i = 0; i < _blogposts2.default.length; i++) {
+	  if (monthArr.includes(_blogposts2.default[i].date.month) != true) monthArr.push(_blogposts2.default[i].date.month);
+	}
+	
+	var tagArr = [];
+	for (var _i = 0; _i < _blogposts2.default.length; _i++) {
+	  for (var j = 0; j < _blogposts2.default[_i].tags.length; j++) {
+	    if (tagArr.includes(_blogposts2.default[_i].tags[j]) != true) tagArr.push(_blogposts2.default[_i].tags[j]);
+	  }
+	}
+	
 	var Body = function (_React$Component) {
 	  _inherits(Body, _React$Component);
 	
-	  function Body() {
+	  function Body(props) {
 	    _classCallCheck(this, Body);
 	
-	    return _possibleConstructorReturn(this, (Body.__proto__ || Object.getPrototypeOf(Body)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Body.__proto__ || Object.getPrototypeOf(Body)).call(this, props));
+	
+	    _this.state = {
+	      data: _blogposts2.default,
+	      monthArr: monthArr,
+	      tagArr: tagArr
+	    };
+	    return _this;
 	  }
 	
 	  _createClass(Body, [{
+	    key: 'clickadoodle',
+	    value: function clickadoodle(pizza) {
+	      console.log(pizza);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'main',
 	        { className: 'body' },
-	        _react2.default.createElement(_Main2.default, { data: this.props.data }),
-	        _react2.default.createElement(_Sidebar2.default, { clickadoodle: this.props.clickadoodle, data: this.props.data })
+	        _react2.default.createElement(_Main2.default, { data: this.state.data }),
+	        _react2.default.createElement(_Sidebar2.default, {
+	          clickadoodle: this.clickadoodle.bind(this), data: this.state.data,
+	          monthArr: this.state.monthArr,
+	          tagArr: this.state.tagArr })
 	      );
 	    }
 	  }]);
@@ -22712,23 +22729,29 @@
 	          this.props.data.map(function (c, i, a) {
 	            return _react2.default.createElement(
 	              'div',
-	              { key: ("blogPost", i), className: 'blogPost' },
+	              { key: "blogPost" + i, className: 'blogPost' },
 	              _react2.default.createElement(
 	                'h4',
-	                { key: ("blogTitle", i) },
+	                { key: "blogTitle" + i },
 	                a[i].title
 	              ),
 	              _react2.default.createElement(
-	                'h3',
-	                { key: ("blogDate", i) },
+	                'h5',
+	                { key: "blogDate" + i },
 	                a[i].date.month,
-	                ' + ", " + ',
+	                ', ',
 	                a[i].date.day,
-	                ' + " " + ',
+	                ' ',
 	                a[i].date.year,
 	                ' '
 	              ),
-	              _react2.default.createElement(_ArticleContent2.default, { data: a[i].article })
+	              _react2.default.createElement(_ArticleContent2.default, { data: a[i].article }),
+	              _react2.default.createElement(
+	                'h5',
+	                { key: "blogTags" + i },
+	                'Tags: ',
+	                a[i].tags.join(", ")
+	              )
 	            );
 	          })
 	        )
@@ -22909,7 +22932,9 @@
 	          { className: 'months' },
 	          'Months with a Post:',
 	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(_MonthList2.default, { clickadoodle: this.props.clickadoodle, data: this.props.data }),
+	          _react2.default.createElement(_MonthList2.default, {
+	            clickadoodle: this.props.clickadoodle, data: this.props.data,
+	            monthArr: this.props.monthArr }),
 	          _react2.default.createElement('br', null)
 	        ),
 	        _react2.default.createElement(
@@ -22917,7 +22942,9 @@
 	          { className: 'tags' },
 	          'Unique Tags:',
 	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(_TagList2.default, { data: this.props.data }),
+	          _react2.default.createElement(_TagList2.default, {
+	            data: this.props.data,
+	            tagArr: this.props.tagArr }),
 	          _react2.default.createElement('br', null)
 	        )
 	      );
@@ -22980,15 +23007,10 @@
 	    value: function render() {
 	      var _this2 = this;
 	
-	      var monthArr = [];
-	      for (var i = 0; i < this.props.data.length; i++) {
-	        if (monthArr.includes(this.props.data[i].date.month) != true) monthArr.push(this.props.data[i].date.month);
-	      }
-	
 	      return _react2.default.createElement(
 	        'ul',
 	        { className: 'monthList' },
-	        monthArr.map(function (month, index) {
+	        this.props.monthArr.map(function (month, index) {
 	          return _react2.default.createElement(
 	            'li',
 	            { key: index },
@@ -23099,17 +23121,10 @@
 	  _createClass(TagList, [{
 	    key: 'render',
 	    value: function render() {
-	      var tagArr = [];
-	      for (var i = 0; i < this.props.data.length; i++) {
-	        for (var j = 0; j < this.props.data[i].tags.length; j++) {
-	          if (tagArr.includes(this.props.data[i].tags[j]) != true) tagArr.push(this.props.data[i].tags[j]);
-	        }
-	      }
-	
 	      return _react2.default.createElement(
 	        'ul',
 	        { className: 'tagList' },
-	        tagArr.map(function (tag, index) {
+	        this.props.tagArr.map(function (tag, index) {
 	          return _react2.default.createElement(
 	            'li',
 	            { key: index },
@@ -23216,7 +23231,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".sidebar {\n  background-color: darkgrey;\n}\n", ""]);
+	exports.push([module.id, ".sidebar {\n  max-width: 13%;\n  background-color: darkgrey;\n}\n", ""]);
 	
 	// exports
 
@@ -23269,112 +23284,6 @@
 
 /***/ },
 /* 197 */
-/*!**************************************!*\
-  !*** ./src/app/components/Footer.js ***!
-  \**************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _Footer = __webpack_require__(/*! ./Footer.css */ 198);
-	
-	var _Footer2 = _interopRequireDefault(_Footer);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Footer = function (_React$Component) {
-	  _inherits(Footer, _React$Component);
-	
-	  function Footer() {
-	    _classCallCheck(this, Footer);
-	
-	    return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
-	  }
-	
-	  _createClass(Footer, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'footer',
-	        null,
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Copyright 2016. Drew Warren'
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return Footer;
-	}(_react2.default.Component);
-	
-	exports.default = Footer;
-
-/***/ },
-/* 198 */
-/*!***************************************!*\
-  !*** ./src/app/components/Footer.css ***!
-  \***************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./Footer.css */ 199);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./Footer.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./Footer.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 199 */
-/*!******************************************************!*\
-  !*** ./~/css-loader!./src/app/components/Footer.css ***!
-  \******************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 177)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "footer {\n  margin:0;\n  padding:0;\n  background-color: darkgrey;\n}\n\nfooter p {\n  text-align: center;\n  margin: 0;\n  padding: 0;\n}\n", ""]);
-	
-	// exports
-
-
-/***/ },
-/* 200 */
 /*!*******************************************!*\
   !*** ./src/app/components/blogposts.json ***!
   \*******************************************/
@@ -23433,6 +23342,112 @@
 		"article": ["Lorem ipsum dolor sit amet, pulvinar perspiciatis ", "Tincidunt interdum vitae ac ipsum.", " Tempor amet et viverra ac velit, nulla ut praesent quam."],
 		"tags": ["tagOne", "tagTwo", "tagThree", "tagSix"]
 	}];
+
+/***/ },
+/* 198 */
+/*!**************************************!*\
+  !*** ./src/app/components/Footer.js ***!
+  \**************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Footer = __webpack_require__(/*! ./Footer.css */ 199);
+	
+	var _Footer2 = _interopRequireDefault(_Footer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Footer = function (_React$Component) {
+	  _inherits(Footer, _React$Component);
+	
+	  function Footer() {
+	    _classCallCheck(this, Footer);
+	
+	    return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
+	  }
+	
+	  _createClass(Footer, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'footer',
+	        null,
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Copyright 2016. Drew Warren'
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Footer;
+	}(_react2.default.Component);
+	
+	exports.default = Footer;
+
+/***/ },
+/* 199 */
+/*!***************************************!*\
+  !*** ./src/app/components/Footer.css ***!
+  \***************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./Footer.css */ 200);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 178)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./Footer.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./Footer.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 200 */
+/*!******************************************************!*\
+  !*** ./~/css-loader!./src/app/components/Footer.css ***!
+  \******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 177)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "footer {\n  margin:0;\n  padding:0;\n  background-color: darkgrey;\n}\n\nfooter p {\n  text-align: center;\n  margin: 0;\n  padding: 0;\n}\n", ""]);
+	
+	// exports
+
 
 /***/ },
 /* 201 */
