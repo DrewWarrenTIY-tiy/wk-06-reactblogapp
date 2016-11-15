@@ -2,3 +2,31 @@
   max-width: 13%;
   background-color: darkgrey;
 }
+
+.tags li {
+  list-style: none;
+  display: inline-block;
+  margin: .2em;
+  padding: 8px;
+  background-color: lightslategrey;
+  color: black;
+}
+
+.tags a {
+  text-decoration: none;
+  color: black;
+}
+
+.months li {
+  list-style: none;
+  display: inline-block;
+  margin: .2em;
+  padding: 8px;
+  background-color: lightslategrey;
+  color: darkred;
+}
+
+.months a {
+  text-decoration: none;
+  color: darkred;
+}

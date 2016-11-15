@@ -24,27 +24,68 @@ for (let i = 0; i < blogData.length; i++) {
 }
 
 export default class Body extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       data: blogData,
       monthArr: monthArr,
-      tagArr: tagArr
+      tagArr: tagArr,
+      searchStr: '',
+      searchType: '',
+      searchValue: ''
     }
   };
 
-  clickadoodle(pizza) {
-    console.log(pizza);
-  };
+  setBlogData(stype, sval) {
+    let arr = [];
+    if (stype === "month") {
+      blogData.map(function(obj) {
+        if (obj.date.month === sval) {
+          arr.push(obj);
+        }
+      })
+    } else if (stype === "tag") {
+      blogData.map(function(obj) {
+        if (obj.tags.includes(sval)) {
+          arr.push(obj);
+        }
+      })
+    }
+    return arr;
+  }
+
+  onSetSearch (stype, sval) {
+    this.setState({
+      searchType: stype,
+      searchValue: sval,
+      data: this.setBlogData(stype, sval)
+    });
+  }
+
+  onSetSearchStr (str) {
+    console.log("str: ", str);
+    this.setState({
+      searchStr: str
+    });
+}
 
   render () {
     return(
       <main className='body'>
-      <Main data={this.state.data} />
+      <Main
+        data={this.state.data}
+        searchStr={this.state.searchStr}
+        searchType={this.state.searchType}
+        searchValue={this.state.searchValue} />
       <Sidebar
-        clickadoodle={this.clickadoodle.bind(this)} data={this.state.data}
+        data={this.state.data}
         monthArr={this.state.monthArr}
-        tagArr={this.state.tagArr} />
+        tagArr={this.state.tagArr}
+        setSearchStr={this.onSetSearchStr.bind(this)}
+        defaultSearchStr={this.state.searchStr}
+        defaultSearchType={this.state.searchType}
+        defaultSearchValue={this.state.searchValue}
+        setSearch={this.onSetSearch.bind(this)}/>
       </main>
     );
   }

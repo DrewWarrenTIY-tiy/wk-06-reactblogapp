@@ -2,12 +2,38 @@
 
 import React from 'react';
 
-import MonthList from './Sidebar/MonthList';
-import TagList from './Sidebar/TagList';
-
 import sidebar from './Sidebar.css';
 
 export default class Sidebar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      monthArr: this.props.monthArr,
+      tagArr: this.props.tagArr,
+      searchStr: this.props.defaultSearchStr,
+      searchType: this.props.defaultSearchType,
+      searchValue: this.props.defaultSearchValue
+    }
+}
+
+  onSearch() {
+    this.props.setSearchStr(this.state.searchStr)
+  }
+
+  onHandleSearch(event) {
+    this.setState({
+      searchStr: event.target.value
+    });
+  }
+
+  onClickSelect(event) {
+    this.setState({
+      searchType: event.target.name,
+      searchValue: event.target.id
+    });
+    this.props.setSearch(event.target.name, event.target.id)
+  }
+
   render () {
     return(
       <div className="sidebar">
@@ -15,18 +41,28 @@ export default class Sidebar extends React.Component {
         <div className="months">
           Months with a Post:
           <br />
-          <MonthList
-            clickadoodle={this.props.clickadoodle} data={this.props.data}
-            monthArr={this.props.monthArr} />
+          <ul className="monthList">
+            {this.props.monthArr.map((month,index) => {
+              return <li key={index}><a
+                href="#"
+                id={month}
+                name="month"
+                onClick={this.onClickSelect.bind(this)}> {month} </a></li> })}
+          </ul>
           <br />
         </div>
         <div className="tags">
           Unique Tags:
           <br />
-          <TagList
-            data={this.props.data}
-            tagArr={this.props.tagArr} />
-          <br />
+          <ul className="tagList">
+            {this.props.tagArr.map((tag, index) => {
+              return <li key={index}><a
+                href="#"
+                id={tag}
+                name="tag"
+                onClick={this.onClickSelect.bind(this)}>{tag}</a></li>
+            })}
+          </ul>
         </div>
       </div>
     );
