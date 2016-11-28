@@ -22652,7 +22652,7 @@
 	      var arr = [];
 	      if (stype === "month") {
 	        _blogposts2.default.map(function (obj) {
-	          if (obj.date.month == sval) {
+	          if (obj.date.month === sval) {
 	            arr.push(obj);
 	          }
 	        });
@@ -22982,12 +22982,6 @@
 	      this.props.setSearch(event.target.name, event.target.id);
 	    }
 	  }, {
-	    key: 'handleClick',
-	    value: function handleClick(e) {
-	      var pizza = "pizza";
-	      this.props.clickadoodle(pizza);
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -23014,7 +23008,11 @@
 	                { key: index },
 	                _react2.default.createElement(
 	                  'a',
-	                  { href: '#', onClick: _this2.onClickSelect.bind(_this2) },
+	                  {
+	                    href: '#',
+	                    id: month,
+	                    name: 'month',
+	                    onClick: _this2.onClickSelect.bind(_this2) },
 	                  ' ',
 	                  month,
 	                  ' '
@@ -23038,7 +23036,11 @@
 	                { key: index },
 	                _react2.default.createElement(
 	                  'a',
-	                  { href: '#', onClick: _this2.onClickSelect.bind(_this2) },
+	                  {
+	                    href: '#',
+	                    id: tag,
+	                    name: 'tag',
+	                    onClick: _this2.onClickSelect.bind(_this2) },
 	                  tag
 	                )
 	              );
