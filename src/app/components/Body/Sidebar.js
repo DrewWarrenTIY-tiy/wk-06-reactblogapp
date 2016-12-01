@@ -16,16 +16,6 @@ export default class Sidebar extends React.Component {
     }
 }
 
-  onSearch() {
-    this.props.setSearchStr(this.state.searchStr)
-  }
-
-  onHandleSearch(event) {
-    this.setState({
-      searchStr: event.target.value
-    });
-  }
-
   onClickSelect(event) {
     this.setState({
       searchType: event.target.name,
